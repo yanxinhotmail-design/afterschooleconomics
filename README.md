@@ -1,1 +1,1 @@
-# afterschooleconomics
+# 放課後経済教室
