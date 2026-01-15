@@ -46,7 +46,6 @@ nav a {
   text-decoration: none;
   color: inherit;
   font-weight: 500;
-  font-size: 8px; /*问爸爸为什么size不变*/
   transition: color 0.3s ease;
   padding: 8px 12px;
 }
@@ -77,7 +76,6 @@ nav a,
   padding: 0.5em 1em;
 }
 
-/* ドロップダウンメニューのスタイル */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -101,7 +99,7 @@ nav a,
   text-decoration: none;
   font-size: 14px;
   background-color: var(--accent-light);
-  white-space: nowrap; /* 追加行：改行を防ぐ */
+  white-space: nowrap; 
 }
 
 .dropdown-content a:hover {
@@ -141,7 +139,6 @@ footer {
   padding: 1em 0;
 }
 
-/* NEWお知らせボックス */
 .notice-box {
   background-color: #fdfaf0;
   padding: 1em;
@@ -151,46 +148,15 @@ footer {
   color: #000;
 }
 
-/* セクション見出し */
 .section-heading {
   font-size: 1.2em;
   color: #333;
   margin-top: 2em;
 }
 
-/* 通常の説明文 */
 .description {
   color: #000;
   line-height: 1.6;
-}
-
-/* SNSリスト */
-.sns-list.center {
-  display: flex;           /* 横並びにする */
-  justify-content: center; /* 中央寄せ */
-  gap: 20px;               /* アイコン間のスペース */
-  padding-left: 0;         /* ulのデフォルトpadding削除 */
-  list-style: none;        /* リストの点を消す */
-  margin: 0;               /* 必要に応じて余白調整 */
-}
-
-.sns-list {
-  display: flex;           /* 横並びにする */
-  gap: 20px;               /* アイコン間のスペース */
-  padding-left: 0;         /* ulのデフォルトpadding削除 */
-  list-style: none;        /* リストの点を消す */
-  margin: 0;               /* 必要に応じて余白調整 */
-}
-
-.sns-icon {
-  width: 40px;  /* アイコンサイズ調整 */
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.sns-icon:hover {
-  transform: scale(1.1);  /* ホバー時に少し大きく */
 }
 
 
@@ -208,3 +174,4 @@ footer {
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+
