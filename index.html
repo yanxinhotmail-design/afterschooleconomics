@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  <meta charset="UTF-8">
+  <title>放課後経済教室 - ホーム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDteP7kCQdCszAtSmhJqOYOEL6AZY4OLBI",
+    authDomain: "k-site-8e88f.firebaseapp.com",
+    databaseURL: "https://k-site-8e88f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "k-site-8e88f",
+    storageBucket: "k-site-8e88f.appspot.com",
+    messagingSenderId: "480207957058",
+    appId: "1:480207957058:web:0fbd10a2a4476892d851db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const counterRef = ref(db, 'accessCount');
+
+  runTransaction(counterRef, (current) => {
+    return (current || 0) + 1;
+  }).then(result => {
+    document.getElementById("access-counter").textContent = `総アクセス数: ${result.snapshot.val()}`;
+  }).catch(error => {
+    console.error("読み込みエラー:", error);
+    document.getElementById("access-counter").textContent = "読み込み失敗";
+  });
+</script>
+
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+<body>
+  <header>
+    <img src="logo.png" alt="放課後経済教室" class="logo">
+  </header>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <div class="dropdown">
+      <a href="#" class="nav-link dropbtn">FINANCE</a>
+      <div class="dropdown-content">
+        <a href="pages/stock.html">株式</a>
+        <a href="pages/bonds.html">債券</a>
+        <a href="pages/funds.html">投資信託</a>
+        <a href="pages/margin.html">信用</a>
+        <a href="pages/futures.html">先物</a>
+        <a href="pages/options.html">先物オプション</a>
+        <a href="pages/otc.html">OTCデリバティブ</a>
+        <a href="pages/savings.html">預金</a>
+        <a href="pages/insurance.html">保険</a>
+      </div>
+    </div>
+    <a href="glossary.html">GLOSSARY</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <div class="container">
+    <!-- NEW見出しと更新履歴のNEWラベルを同じ場所に -->
+    <h2 style="text-align: center; color: #333;">
+      NEW
+    </h2>
+
+    <div class="notice-box">
+      <p><strong>【お知らせ】</strong> 放課後経済教室のウェブサイトを公開しました！</p>
+      <p>中高生に向けて、金融や経済の基本をわかりやすく解説するコンテンツを発信しています。</p>
+    </div>
+
+    <!-- このサイトについて -->
+    <section>
+      <h2 class="section-heading">このサイトについて</h2>
+      <p class="description">
+        「放課後経済教室」は、中高生が日常生活や将来に役立つ金融知識を、やさしく学べるサイトです。貯金、投資、経済のしくみまで、初めてでも安心して読める内容を目指しています。
+      </p>
+    </section>
+  </div>
+
+  <script>
+    let count = localStorage.getItem("siteAccessCount");
+  
+    if (!count) {
+      count = 1;
+    } else {
+      count = Number(count) + 1;
+    }
+  
+    localStorage.setItem("siteAccessCount", count);
+  
+    document.getElementById("access-counter").textContent =
+      "アクセス数：" + count;
+  </script>
+  <footer>
+    <p id="access-counter">アクセス数を読み込み中...</p>
+    <p>&copy; 2026 放課後経済教室</p>
+  </footer>
+</div>
+</body>
+</html>

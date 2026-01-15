@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title>新規投稿</title></head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62HSSD6K86"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-62HSSD6K86');
+</script>
+
+
+<body>
+  <h1>新しい投稿</h1>
+  <form action="submit_post.php" method="post">
+    カテゴリ:
+    <select name="category">
+      <option value="yokin">預貯金</option>
+      <option value="toushin">投資信託</option>
+      <option value="kabu">株式</option>
+      <option value="saiken">債券</option>
+      <option value="hoken">保険</option>
+      <option value="derivatives">OTCデリバティブ</option>
+      <option value="other">その他</option>
+    </select><br><br>
+    タイトル: <input type="text" name="title"><br><br>
+    本文:<br>
+    <textarea name="body" rows="8" cols="50"></textarea><br><br>
+    <input type="submit" value="投稿する">
+  </form>
+</body>
+</html>
